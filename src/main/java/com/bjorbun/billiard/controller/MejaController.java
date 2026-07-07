@@ -1,7 +1,10 @@
 package com.bjorbun.billiard.controller;
 
+import com.bjorbun.billiard.dto.MejaRequestDTO;
 import com.bjorbun.billiard.model.Meja;
 import com.bjorbun.billiard.service.MejaService;
+
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
@@ -31,8 +34,15 @@ public class MejaController {
 
     // 3. CREATE - POST http://localhost:8080/api/meja
     @PostMapping
-    public Meja createMeja(@RequestBody Meja meja) {
-        return mejaService.saveMeja(meja);
+    public Meja createMeja(@Valid @RequestBody MejaRequestDTO mejaDTO) {
+        // Proses memindahkan data dari DTO ke Entity
+        Meja mejaBaru = new Meja();
+        mejaBaru.setNoMeja(mejaDTO.getNoMeja());
+        mejaBaru.setTipeMeja(mejaDTO.getTipeMeja());
+        mejaBaru.setStatus(mejaDTO.getStatus());
+        mejaBaru.setHargaPerJam(mejaDTO.getHargaPerJam());
+        
+        return mejaService.saveMeja(mejaBaru);
     }
 
     // 4. UPDATE - PUT http://localhost:8080/api/meja/1
