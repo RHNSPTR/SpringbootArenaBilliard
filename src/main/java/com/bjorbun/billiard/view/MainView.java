@@ -6,7 +6,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
 // Anotasi @Route menentukan URL endpoint untuk tampilan ini
-@Route("") // String kosong berarti ini adalah halaman utama (localhost:8080/)
+@Route(value = "", layout = MainLayout.class) 
 public class MainView extends VerticalLayout {
 
     public MainView() {
