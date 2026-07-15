@@ -1,7 +1,6 @@
 package com.bjorbun.billiard.service;
 
 import com.bjorbun.billiard.model.Meja;
-import com.bjorbun.billiard.model.Member;
 import com.bjorbun.billiard.model.Pemesanan;
 import com.bjorbun.billiard.repository.MejaRepository;
 import com.bjorbun.billiard.repository.PemesananRepository;

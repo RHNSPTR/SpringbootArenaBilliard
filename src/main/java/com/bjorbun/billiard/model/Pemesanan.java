@@ -19,6 +19,7 @@ public class Pemesanan {
     private Integer durasiJam;
     private Double totalBiaya;
     private LocalDateTime waktuMulai;
+    private String statusPemesanan;
 
     // Relasi Many-to-One ke Member
     @ManyToOne
