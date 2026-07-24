@@ -68,10 +68,10 @@ public class MejaView extends VerticalLayout {
     }
 
     private void configureGrid() {
-        grid.addColumn(Meja::getNoMeja).setHeader("No Meja");
-        grid.addColumn(Meja::getTipeMeja).setHeader("Tipe Meja");
-        grid.addColumn(Meja::getStatus).setHeader("Status");
-        grid.addColumn(Meja::getHargaPerJam).setHeader("Harga / Jam");
+        grid.addColumn(meja -> meja.getNoMeja()).setHeader("No Meja");
+        grid.addColumn(meja -> meja.getTipeMeja()).setHeader("Tipe Meja");
+        grid.addColumn(meja -> meja.getStatus()).setHeader("Status");
+        grid.addColumn(meja -> meja.getHargaPerJam()).setHeader("Harga / Jam");
         grid.setSizeFull();
     }
 

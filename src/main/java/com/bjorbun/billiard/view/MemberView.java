@@ -62,10 +62,10 @@ public class MemberView extends VerticalLayout {
     }
 
     private void configureGrid() {
-        grid.addColumn(Member::getIdMember).setHeader("ID Member");
-        grid.addColumn(Member::getNama).setHeader("Nama");
-        grid.addColumn(Member::getNoTelepon).setHeader("No Telepon");
-        grid.addColumn(Member::getPoinLoyalitas).setHeader("Poin");
+        grid.addColumn(m -> m.getIdMember()).setHeader("ID Member");
+        grid.addColumn(m -> m.getNama()).setHeader("Nama");
+        grid.addColumn(m -> m.getNoTelepon()).setHeader("No Telepon");
+        grid.addColumn(m -> m.getPoinLoyalitas()).setHeader("Poin");
 
         // Kolom Aksi Hapus Member
         grid.addComponentColumn(m -> {

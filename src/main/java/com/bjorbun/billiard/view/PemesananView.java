@@ -54,10 +54,10 @@ public class PemesananView extends VerticalLayout {
 
     private void configureForm() {
         cbMeja.setItems(mejaService.getAllMeja()); 
-        cbMeja.setItemLabelGenerator(Meja::getNoMeja);
+        cbMeja.setItemLabelGenerator(meja -> meja != null ? meja.getNoMeja() : "");
 
         cbMember.setItems(memberService.getAllMember()); 
-        cbMember.setItemLabelGenerator(Member::getNama);
+        cbMember.setItemLabelGenerator(member -> member != null ? member.getNama() : "");
 
         btnSimpan.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         btnSimpan.addClickListener(e -> simpanPemesanan());
@@ -70,12 +70,12 @@ public class PemesananView extends VerticalLayout {
     }
 
     private void configureGrid() {
-        grid.addColumn(Pemesanan::getKodeBooking).setHeader("Kode Booking");
+        grid.addColumn(p -> p.getKodeBooking()).setHeader("Kode Booking");
         grid.addColumn(p -> p.getMeja() != null ? p.getMeja().getNoMeja() : "-").setHeader("Meja");
         grid.addColumn(p -> p.getMember() != null ? p.getMember().getNama() : "Non-Member").setHeader("Pelanggan");
-        grid.addColumn(Pemesanan::getDurasiJam).setHeader("Durasi");
-        grid.addColumn(Pemesanan::getTotalBiaya).setHeader("Total Biaya");
-        grid.addColumn(Pemesanan::getStatusPemesanan).setHeader("Status");
+        grid.addColumn(p -> p.getDurasiJam()).setHeader("Durasi");
+        grid.addColumn(p -> p.getTotalBiaya()).setHeader("Total Biaya");
+        grid.addColumn(p -> p.getStatusPemesanan()).setHeader("Status");
 
         // Menambahkan Tombol Aksi Batal & Hapus Booking
         grid.addComponentColumn(p -> {
